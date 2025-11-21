@@ -1,0 +1,75 @@
+[project]
+name = "chatbot-dynamic-memory"
+version = "1.0.0"
+description = "Hybrid memory system for AI chatbots combining short-term windows with semantic retrieval"
+readme = "README.md"
+requires-python = ">=3.13"
+license = {text = "MIT"}
+authors = [
+    { name = "Javier Burguera" }
+]
+keywords = [
+    "chatbot",
+    "memory",
+    "conversational-ai",
+    "semantic-search",
+    "vector-database",
+    "redis",
+    "qdrant",
+    "pydantic-ai"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "pydantic-settings>=2.9.1",
+    "pydantic>=2.11.4",
+    "pydantic-ai-slim[openai]>=0.1.9",
+    "gradio>=5.31.0",
+    "langmem>=0.0.26",
+    "asyncer>=0.0.8",
+    "redis>=5.0.0",
+    "qdrant-client>=1.7.0",
+    "openai>=1.12.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=24.0.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "mypy>=1.8.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/javierburguera/chatbot-dynamic-memory"
+Repository = "https://github.com/javierburguera/chatbot-dynamic-memory"
+Issues = "https://github.com/javierburguera/chatbot-dynamic-memory/issues"
+
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ['py313']
+include = '\.pyi?$'
+
+[tool.mypy]
+python_version = "3.13"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
